@@ -37,7 +37,7 @@ The original notebook (`notebooks/01_model_comparison.ipynb`) also trained an AN
 
 Two properties of this dataset explain it, and they are worth knowing before trusting any result on it:
 
-1. **Duplicates.** 250 of the 498 rows are exact duplicates. With a random split, copies of the same record land in both train and test sets, which inflates test accuracy. That is why every model reaches 100% on the raw split, while the tree models drop to 94% and 88% once duplicates are removed and cross-validation is used.
+1. **Duplicates.** 250 of the 498 rows are exact duplicates. With a random split, copies of the same record land in both train and test sets, which inflates test accuracy. That is why every model reaches 100% on the raw split, while the tree-based models drop to 88–95% once duplicates are removed and cross-validation is used.
 2. **The label is a scoring rule.** The `Class/ASD` label equals "YES" exactly when the AQ-10 score (the sum of the 10 answers) is 7 or more. A one-line threshold rule therefore scores 100%. Linear models can represent this rule exactly; tree models only approximate it.
 
 So the models reproduce the questionnaire's scoring threshold; they don't discover new diagnostic signal. A meaningful next step would be predicting a clinical diagnosis rather than the screening label.
