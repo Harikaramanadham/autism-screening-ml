@@ -29,6 +29,7 @@ Run `python evaluate.py` to reproduce:
 | Logistic Regression | 100.0% | 100.0% ± 0.0% |
 | Random Forest | 100.0% | 94.3% ± 3.0% |
 | Decision Tree | 100.0% | 87.8% ± 3.4% |
+| XGBoost | 100.0% | 95.1% ± 2.0% |
 
 The original notebook (`notebooks/01_model_comparison.ipynb`) also trained an ANN (98.0% test accuracy), a 1D-CNN (93.3%) and an LSTM (93.3%) with Keras.
 
@@ -73,7 +74,7 @@ python app.py                      # open http://127.0.0.1:5000
 
 ## Tech stack
 
-Python · Flask · MySQL · scikit-learn · pandas · TensorFlow/Keras (notebook) · HTML/CSS/Bootstrap
+Python · Flask · MySQL · scikit-learn · XGBoost · pandas · TensorFlow/Keras (notebook) · HTML/CSS/Bootstrap
 
 ## Credits
 

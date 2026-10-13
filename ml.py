@@ -12,6 +12,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from xgboost import XGBClassifier
 
 QUESTION_COLS = [f"A{i}_Score" for i in range(1, 11)]
 FEATURE_COLS = QUESTION_COLS + ["age", "gender", "jaundice", "family_autism"]
@@ -53,13 +54,17 @@ def make_model(name: str):
         "Logistic Regression": make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)),
         "Random Forest Classifier": RandomForestClassifier(n_estimators=500, random_state=0),
         "Decision Tree Classifier": DecisionTreeClassifier(random_state=0),
+        "XGBoost": XGBClassifier(
+            n_estimators=300, max_depth=3, learning_rate=0.1,
+            eval_metric="logloss", random_state=42,
+        ),
     }
     if name not in models:
         raise ValueError(f"Unknown algorithm: {name}")
     return models[name]
 
 
-ALGORITHMS = ["SVM", "Logistic Regression", "Random Forest Classifier", "Decision Tree Classifier"]
+ALGORITHMS = ["SVM", "Logistic Regression", "Random Forest Classifier", "Decision Tree Classifier", "XGBoost"]
 
 
 def split(df: pd.DataFrame, test_size: float = 0.3):
