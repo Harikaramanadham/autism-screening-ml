@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('home')}}" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('upload')}}" style="color: yellow;">Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('split')}}" style="color: white;">Data split</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('model')}}" style="color: white;">Model Selection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('prediction')}}" style="color: white;">Prediction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}" style="color: white;">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Updated container for scroll bars */
+        .table-container {
+            width: 1200px; /* Adjust width as needed */
+            height: 400px; /* Adjust height as needed */
+            overflow: auto; /* Enables both horizontal and vertical scroll bars */
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            background-color: white; /* Ensure background color is set */
+        }
+    </style>
+
+    <div class="contact_section layout_padding" style="margin-top: -100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Upload Dataset</h1>
+                    <div class="bulit_icon"><img src="/static/images/bulit-icon.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
+                            <div class="mail_section_1">
+
+                                <input type="file" name="file" class="mail_text" required>
+                                
+                                <center>
+                                    <button type="submit" class="btn btn-info" style="margin-top: 20px; width: 60%;">Submit</button>
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <center>
+        {% if data %}
+            <h2>Uploaded Dataset Preview</h2>
+            <div class="table-container" style="background-color: white;">
+                {{ data | safe }}
+            </div>
+        {% endif %}
+    </center>
+{% endblock %}

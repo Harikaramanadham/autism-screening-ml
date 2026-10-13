@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('home')}}" style="color: yellow;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('upload')}}" style="color: white;">Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('split')}}" style="color: white;">Data split</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('model')}}" style="color: white;">Model Selection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('prediction')}}" style="color: white;">Prediction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}" style="color: white;">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="banner_section layout_padding" style="min-height: 650px;">
+        <div class="container">
+            <div id="banner_slider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+                            <div class="banner_img"><img src="/static/images/banner-img.png"></div>
+                        </div> -->
+                        <div class="col-12">
+                            <div class="banner_taital_main" style="margin-top: -100px;">
+                                <h1 class="banner_taital" style="color: beige;">WELCOME!</h1>
+                                <h5 class="tasty_text">DEEP ANALYSIS OF AUTISM SPECTRUM DISORDER DETECTION TECHNIQUES</h5>
+                                <p class="banner_text" style="color: aquamarine;">"Machine Learning and Deep Learning Approach"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+         <a class="nav-link" href="{{url_for('index')}}" style="color: white;">Home</a>
+      </li>
+      <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('about')}}" style="color: yellow;">About</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}" style="color: white;">Register</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}" style="color: white;">Login</a>
+      </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+   <div class="about_section layout_padding">
+      <div class="container">
+         <div class="about_section_2 layout_padding">
+            <div class="image_iman">
+               <!-- <img src="/static/images/pexels-rdne-6129115.jpg" class="about_img" style="margin-top: -100px;"> -->
+            </div>
+            <div class="about_taital_box" style="margin-top: -1400px; width: 1000px;  background-color: rgba(255, 255, 255, 0.5);">
+               <h1 class="about_taital_1">DEEP ANALYSIS OF AUTISM SPECTRUM DISORDER DETECTION TECHNIQUES</h1>
+               <p class=" about_text" style="text-align: justify;">
+                  Autism Spectrum Disorder (ASD), which is a neuro development disorder, is often accompanied by sensory issues such an over sensitivity or under sensitivity to sounds and smells or touch. In present day Autism Spectrum Disorder (ASD) is gaining its momentum faster than ever. Detecting autism traits through screening tests is very expensive and time consuming. With the advancement of artificial intelligence and machine learning (ML), autism can be predicted at quite early stage. The main aim of this project is to analyze various Machine learning algorithms, used by various researcher like SVM (support Vector Machine), Random Forest, Naive Bayes, Decision Trees, and Logistic Regression and compare the result based on their accuracy and efficiency.
+                  With the advancement of artificial intelligence and machine learning (ML), autism can be predicted at quite early stage. The main aim of this project is to analyze various Machine learning algorithms, used by various researcher like SVM (support Vector Machine), Random Forest, Decision Trees, Logistic Regression, Linear Discriminant Analysis (LDA) and compare the result based on their accuracy and efficiency.
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}

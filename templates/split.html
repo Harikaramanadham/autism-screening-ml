@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('home')}}" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('upload')}}" style="color: white;">Upload</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('split')}}" style="color: yellow;">Data split</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('model')}}" style="color: white;">Model Selection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('prediction')}}" style="color: white;">Prediction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}" style="color: white;">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="contact_section layout_padding" style="margin-top: -100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Data splitting</h1>
+                    <div class="bulit_icon"><img src="/static/images/bulit-icon.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="{{url_for('split')}}" method="post">
+                            <div class="mail_section_1">
+
+                                <input type="number" min="0" max="1" step="0.01" name="split_size" class="mail_text" placeholder="Enter the test percentage for splitting" required>
+                                
+                                <center>
+                                    <button type="submit" class="btn btn-info" style="margin-top: 20px; width: 60%;">Submit</button>
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('home')}}" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('upload')}}" style="color: white;">Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('split')}}" style="color: white;">Data split</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('model')}}" style="color: white;">Model Selection</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('prediction')}}" style="color: yellow;">Prediction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}" style="color: white;">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="contact_section layout_padding" style="margin-top: -100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <center>
+                        {% if prediction %}
+                            <h1 style="color: white;">
+                                <div style="background-color: rgba(0, 0, 0, 0.568); width: 300px;">
+                                    Prediction : <b>{{prediction}}</b></h1>
+                                </div>
+                        {% endif %}
+                    </center>
+                    
+                    <h1 class="contact_taital">Enter data</h1>
+                    <div class="bulit_icon"><img src="/static/images/bulit-icon.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="{{url_for('prediction')}}" method="post">
+                            <div class="mail_section_1">
+
+                                <!-- A1 -->
+                                <select name="a1" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he often notices small sounds when others do not (Child, Adolescent) / Does your child look at you when you call his/her name? (Toddler)</p>
+                                <!-- A2 -->
+                                <select name="a2" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he usually concentrates more on the whole picture, rather than the small detail (Child, Adolescent, Adults) / How easy is it for you to get eye contact with your child? (Toddler)</p>
+
+                                <!-- A3 -->
+                                <select name="a3" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">In a social group, s/he can easily keep track of several different peoples conversations (Child, Adolescent) / Does your child point to indicate that s/he wants something? (Toddler)</p>
+
+                                <!-- A4 -->
+                                <select name="a4" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he finds it easy to go back and forth between different activities (Child, Adolescent) / Does your child point to share interest with you? (Toddler)</p>
+
+                                <!-- A5 -->
+                                <select name="a5" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he doesn’t know how to keep a conversation going with his/her peers (Child, Adolescent) / Does your child pretend? (e.g. care for dolls, talk on a toy phone) (Toddler)</p>
+
+                                <!-- A6 -->
+                                <select name="a6" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he is good at social chit-chat (Child, Adolescent) / Does your child follow where you’re looking? (Toddler)</p>
+
+                                <!-- A7 -->
+                                <select name="a7" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">When s/he is read a story, s/he finds it difficult to work out the characters' intentions or feelings (Child) / If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (Toddler)</p>
+
+                                <!-- A8 -->
+                                <select name="a8" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">When s/he was in preschool, s/he used to enjoy playing games involving pretending with other children (Child) / Would you describe your child's first words as: (Toddler)</p>
+
+                                <!-- A9 -->
+                                <select name="a9" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he finds it easy to work out what someone is thinking or feeling just by looking at their face (Child) / Does your child use simple gestures? (e.g. wave goodbye) (Toddler)</p>
+
+                                <!-- A10 -->
+                                <select name="a10" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                </select>
+                                <p class="placeholder-text">S/he finds it hard to make new friends (Child, Adolescent) / Does your child stare at nothing with no apparent purpose? (Toddler)</p>
+
+                                <!-- AGE -->
+                                <input type="number" min="1" max="18" name="age" class="mail_text" placeholder="Enter age (4-11)" required>
+
+                                <!-- GENDER -->
+                                <select name="gender" class="mail_text" required>
+                                    <option value="">Select an option</option>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+
+                                <!-- JUNDICE -->
+                                <select name="jundice" class="mail_text" required>
+                                    <option value="">Born with jaundice?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+
+                                <!-- AUTISM -->
+                                <select name="autism" class="mail_text" required>
+                                    <option value="">Family member with autism?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+
+                                <center>
+                                    <button type="submit" class="btn btn-info" style="margin-top: 20px; width: 30%;">Submit</button>
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

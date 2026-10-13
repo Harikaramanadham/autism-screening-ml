@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('home')}}" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('upload')}}" style="color: white;">Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('split')}}" style="color: white;">Data split</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('model')}}" style="color: yellow;">Model Selection</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('prediction')}}" style="color: white;">Prediction</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}" style="color: white;">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="contact_section layout_padding" style="margin-top: -100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Model Selection</h1>
+                    <div class="bulit_icon"><img src="/static/images/bulit-icon.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="{{url_for('model')}}" method="post">
+                            <div class="mail_section_1">
+
+                                {% if accuracy %}
+                                    <center>
+                                        <h2 style="color: aqua;">{{algorithm}}: {{accuracy}}% test accuracy</h2>
+                                        <h4 style="color: white;">5-fold cross-validation: {{cv_accuracy}}% &plusmn; {{cv_std}}%</h4>
+                                    </center>
+                                {% endif %}
+
+                                <select name="algorithm" class="mail_text" required>
+                                    <option value="">Choose Algorithm</option>
+                                    <option value="SVM">Support Vector Machine</option>
+                                    <option value="Logistic Regression">Logistic Regression</option>
+                                    <option value="Random Forest Classifier">Random Forest Classifier</option>
+                                    <option value="Decision Tree Classifier">Decision Tree Classifier</option>
+                                </select>
+
+                                <center>
+                                    <button type="submit" class="btn btn-info" style="margin-top: 20px; width: 60%;">Submit</button>
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
